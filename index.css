@@ -1,0 +1,65 @@
+@import "node_modules/reset.css/reset.css";
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+::selection {
+    background: #dc134c;
+    color: #fff;
+}
+
+body {
+    height: 100vh;
+    min-width: 320px;
+    text-align: center;
+    font-family: system-ui;
+    overflow-x: hidden;
+    padding: .5rem;
+    background: #f2f2f2;
+    color: #333;
+}
+
+#quiz {
+    margin: 0 auto;
+    max-width: 40rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    line-height: 1.2;
+    font-weight: bold;
+    font-size: 2rem;
+    padding-bottom: 2rem;
+}
+
+button {
+    display: block;
+    margin: .5rem auto;
+    cursor: pointer;
+    padding: 1rem;
+    width: 100%;
+    user-select: none;
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: .25rem;
+    font-family: system-ui;
+    outline: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #dc134c;
+    border-color: #fff;
+    color: #fff;
+}

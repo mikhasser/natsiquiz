@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <div id="quiz">
+        <h2>{{ currentPrompt }}</h2>
+        <button style="width: auto;" v-if="!isStarted" @click="startQuiz">Start</button>
+        <div v-if="isStarted">
+            <button v-for="item in currentOptions" @click="nextQuestionHandler(item.score)">{{ item.option }}</button>
+        </div>
+    </div>
+    
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
