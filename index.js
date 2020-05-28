@@ -93,6 +93,28 @@ let questions = [
     },
 ]
 
+Array.prototype.shuffle = function () {
+    for (let i = this.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [this[i], this[j]] = [this[j], this[i]];
+    }
+    return this;
+} // shuffle order of elements in arrays
+
+function shuffleQuestions(arr) {
+    let first = arr[0] // get first item
+    let therest = arr.slice(1, this.length - 1) // remove first and last items
+    let last = arr[arr.length - 1] // get last item
+
+    therest.shuffle() //shuffle therest
+    therest.map( item => item.options.shuffle() ) //shuffle options
+
+    therest.unshift(first) // add to the beginning
+    therest.push(last) // add to the end
+
+    return therest
+}
+
 Vue.config.devtools = true
 Vue.config.errorHandler = function(err, vm, info) {
     quiz.resetQuiz()
@@ -101,7 +123,7 @@ Vue.config.errorHandler = function(err, vm, info) {
 let quiz = new Vue({
     el: '#quiz',
     data: {
-        questions,
+        questions: shuffleQuestions(questions),
         isEnded: false,
         scores: 0,
         diagnosis: '',
@@ -130,13 +152,14 @@ let quiz = new Vue({
 
             if (percentScores >= 70) {
                 this.diagnosis = 'You are.. you are.. not a natsi! Congratulations! You can join the Antisig army.'
-            } else if (percentScores >= 50 && percentScores < 70) {
+            } else if (percentScores >= 40 && percentScores < 70) {
                 this.diagnosis = 'Apparently you\'re not a natsi, but you\'re also not a natsi-struggler as the great not a beard guy, you seem to be a usual person so walk away😞'
-            } else if (percentScores >= 0 && percentScores < 50) {
+            } else if (percentScores >= 0 && percentScores < 40) {
                 this.diagnosis = 'We\'ve got bad news, kid. You\'re a natsi and your location has been triangulated, so now The Gobsmaking Antisig is coming to you, NATSI'
             }
         },
         resetQuiz: function() {
+            this.questions = shuffleQuestions(questions)
             this.isEnded = false
             this.scores = 0
             this.diagnosis = ''
@@ -144,6 +167,7 @@ let quiz = new Vue({
             this.currentPrompt = ''
             this.currentOptions = []
             this.currentScore = 0
+
 
             this.nextQuestionHandler(0)
             this.nextQuestionHandler(0)
