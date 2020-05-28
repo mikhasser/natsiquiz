@@ -80,7 +80,7 @@ button {
     font-size: 1rem;
 }
 
-button:hover {
+button:active {
     background: var(--accent);
     border-color: var(--primary);
     color: var(--primary);

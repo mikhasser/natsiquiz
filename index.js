@@ -1,94 +1,94 @@
 let questions = [
     {
-        prompt: 'Quiz: are you a natsi?',
+        prompt: 'Тест: вы фошызд?',
         options: [
-            { option: 'Start', score: 0 }
+            { option: 'Начать', score: 0 }
         ]
     },
     {
-        prompt: 'Who is Barack Obama?',
+        prompt: 'Кто такой Барак Обама?',
         options: [
-            { option: 'A remarkable man!', score: 0 },
-            { option: 'The 44th president of the USA', score: 0.5 },
+            { option: 'Замечательный человек!', score: 0 },
+            { option: '44-ый президент США', score: 0.5 },
             { option: '🐒', score: 1 }
         ]
     },
     {
-        prompt: 'Do you support such expressions as "Russia is for russians" and "Jews must die"?',
+        prompt: 'Поддерживаете ли вы такие выражения как "Раесся для русских" и "Евреи должны умереть"?',
         options: [
-            { option: 'Yes, and btw my momma was beating me during my childhood', score: 0 },
-            { option: 'I keep neutrality', score: 0.5 },
-            { option: 'No', score: 1 }
+            { option: 'Да, и между прочим, моя мать избивала меня в детстве', score: 0 },
+            { option: 'Я сохраняю нейтралитет', score: 0.5 },
+            { option: 'Нет', score: 1 }
         ]
     },
     {
-        prompt: 'Is Jinga your phone?',
+        prompt: 'Вы пользуетесь Джингой?',
         options: [
-            { option: 'Jinga is a bad cellphone, i prefer iPhone', score: 0 },
-            { option: 'I didn\'t hear about it, do you mean python\'s framework Django?', score: 0.5 },
-            { option: 'JINGA! The only reliable device.', score: 1 }
+            { option: 'Джинга - плохой телефон, я предпочитаю айфон', score: 0 },
+            { option: 'Django?', score: 0.5 },
+            { option: 'Да, прочная мобилка', score: 1 }
         ]
     },
     {
-        prompt: 'What would have happened after WW2 alternatively?',
+        prompt: 'Что бы случилось после второй мировой войны в качестве альтернативы?',
         options: [
-            { option: 'We would eat bavarian sausages and drink bear, because hitler (raise ukraine) wasn\'t going to exterminate all russians', score: 0 },
-            { option: 'IDK but i guess nothing good', score: 0.5 },
-            { option: 'A total nightmare', score: 1 }
+            { option: 'Мы бы ели баварские сосиски и пили пиво, потому что гитлер не собирался уничтожить всех русских', score: 0 },
+            { option: 'Я хз, но думаю ничего хорошего', score: 0.5 },
+            { option: 'Полный кошмар', score: 1 }
         ]
     },
     {
-        prompt: 'You are?',
+        prompt: 'Вы?',
         options: [
-            { option: 'National socialist', score: 0 },
-            { option: 'Libertarian', score: 0.5 },
-            { option: 'Communist', score: 1 }
+            { option: 'Национал социалист', score: 0 },
+            { option: 'Либераха', score: 0.5 },
+            { option: 'Коммунист ☭', score: 1 }
         ]
     },
     {
-        prompt: 'Do you play Dota 2?',
+        prompt: 'Вы играете в Dota 2?',
         options: [
-            { option: 'Dota is for gays', score: 0 },
-            { option: 'Sometimes', score: 0.5 },
-            { option: 'I\'ve played about 10,000 hours', score: 1 }
+            { option: 'Дота для пидоров', score: 0 },
+            { option: 'Иногда', score: 0.5 },
+            { option: 'Я наиграл 10,000 часов', score: 1 }
         ]
     },
     {
-        prompt: 'Bue-bue-bue',
+        prompt: 'Буэ-буэ-буэ',
         options: [
-            { option: 'Speak clearly!', score: 0 },
-            { option: 'Hahahaha, that was fun', score: 0.5 },
-            { option: 'Bue-bue-bue', score: 1 }
+            { option: 'Говори четче!', score: 0 },
+            { option: 'Ахахаха, это было смешно', score: 0.5 },
+            { option: 'Буэ-буэ-буэ', score: 1 }
         ]
     },
     {
-        prompt: 'What\'s your favorite title?',
+        prompt: 'Какой ваш любимый тайтл?',
         options: [
-            { option: 'These chinese cartoons?', score: 0 },
-            { option: 'I dunno cause i like several ones', score: 0.5 },
-            { option: 'I LOVE all anime 😍', score: 1 }
+            { option: 'Это китайские мультики?', score: 0 },
+            { option: 'Не знаю, мне нравится несколько', score: 0.5 },
+            { option: 'Я люблю все аниме😍', score: 1 }
         ]
     },
     {
-        prompt: 'Is our president awesome?',
+        prompt: 'Путин красавчик?',
         options: [
-            { option: 'He has robbed our country and ashamed her at the world arena! And also i\'m retarded!', score: 0 },
-            { option: 'His affairs speak for themselves', score: 0.5 },
-            { option: 'Yes 😍', score: 1 }
+            { option: 'Он ограбил нашу страну и опозорил ее на мировой арене! А еще я отсталый!', score: 0 },
+            { option: 'Его дела говорят сами за себя😏', score: 0.5 },
+            { option: 'Да😍', score: 1 }
         ]
     },
     {
-        prompt: 'Is magic cool?',
+        prompt: 'Магия - это круто?',
         options: [
-            { option: 'Yes!', score: 0 },
-            { option: 'Whatever', score: 0.5 },
-            { option: 'I prefer science fantastic', score: 1 }
+            { option: 'Да!', score: 0 },
+            { option: 'Мне все равно', score: 0.5 },
+            { option: 'Я предпочитаю научную фантастику', score: 1 }
         ]
     },
     {
-        prompt: 'Your results: ',
+        prompt: 'Ваши результаты: ',
         options: [
-            { option: 'Try again', score: 0 }
+            { option: 'Пройти еще раз', score: 0 }
         ]
     },
 ]
@@ -151,11 +151,11 @@ let quiz = new Vue({
             let percentScores = Math.floor( this.scores / (this.questions.length - 2) * 100 )
 
             if (percentScores >= 70) {
-                this.diagnosis = 'You are.. you are.. not a natsi! Congratulations! You can join the Antisig army.'
+                this.diagnosis = 'Вы.. Вы.. не фошызд! Поздравляем! Вы можете присоединиться к армии Антизига!'
             } else if (percentScores >= 40 && percentScores < 70) {
-                this.diagnosis = 'Apparently you\'re not a natsi, but you\'re also not a natsi-struggler as the great not a beard guy, you seem to be a usual person so walk away😞'
+                this.diagnosis = 'Видимо ты не фошызд, но также ты и не борец с фошызмом как не борода, скорее всего ты обычный человек, так что уходи😞'
             } else if (percentScores >= 0 && percentScores < 40) {
-                this.diagnosis = 'We\'ve got bad news, kid. You\'re a natsi and your location has been triangulated, so now The Gobsmaking Antisig is coming to you, NATSI'
+                this.diagnosis = 'У меня для тебя плохие новости, братишка. Ты фошызд и твое местоположение было триангулировано, так что сейчас Охуительный Антизиг едет к тебе, ФОШЫЗД!'
             }
         },
         resetQuiz: function() {
