@@ -1,6 +1,11 @@
 let questions = [
     {
-        id: 1,
+        prompt: 'Quiz: are you a natsi?',
+        options: [
+            { option: 'Start', score: 0 }
+        ]
+    },
+    {
         prompt: 'Who is Barack Obama?',
         options: [
             { option: 'A remarkable man!', score: 0 },
@@ -9,7 +14,6 @@ let questions = [
         ]
     },
     {
-        id: 2,
         prompt: 'Do you support such expressions as "Russia is for russians" and "Jews must die"?',
         options: [
             { option: 'Yes, and btw my momma was beating me during my childhood', score: 0 },
@@ -18,7 +22,6 @@ let questions = [
         ]
     },
     {
-        id: 3,
         prompt: 'Is Jinga your phone?',
         options: [
             { option: 'Jinga is a bad cellphone, i prefer iPhone', score: 0 },
@@ -27,7 +30,6 @@ let questions = [
         ]
     },
     {
-        id: 4,
         prompt: 'What would have happened after WW2 alternatively?',
         options: [
             { option: 'We would eat bavarian sausages and drink bear, because hitler (raise ukraine) wasn\'t going to exterminate all russians', score: 0 },
@@ -36,16 +38,14 @@ let questions = [
         ]
     },
     {
-        id: 5,
         prompt: 'You are?',
         options: [
-            { option: 'Nazi (natsi)', score: -1488 },
+            { option: 'National socialist', score: 0 },
             { option: 'Libertarian', score: 0.5 },
             { option: 'Communist', score: 1 }
         ]
     },
     {
-        id: 6,
         prompt: 'Do you play Dota 2?',
         options: [
             { option: 'Dota is for gays', score: 0 },
@@ -54,7 +54,6 @@ let questions = [
         ]
     },
     {
-        id: 7,
         prompt: 'Bue-bue-bue',
         options: [
             { option: 'Speak clearly!', score: 0 },
@@ -63,7 +62,6 @@ let questions = [
         ]
     },
     {
-        id: 8,
         prompt: 'What\'s your favorite title?',
         options: [
             { option: 'These chinese cartoons?', score: 0 },
@@ -72,7 +70,6 @@ let questions = [
         ]
     },
     {
-        id: 9,
         prompt: 'Is our president awesome?',
         options: [
             { option: 'He has robbed our country and ashamed her at the world arena! And also i\'m retarded!', score: 0 },
@@ -81,7 +78,6 @@ let questions = [
         ]
     },
     {
-        id: 10,
         prompt: 'Is magic cool?',
         options: [
             { option: 'Yes!', score: 0 },
@@ -89,41 +85,71 @@ let questions = [
             { option: 'I prefer science fantastic', score: 1 }
         ]
     },
+    {
+        prompt: 'Your results: ',
+        options: [
+            { option: 'Try again', score: 0 }
+        ]
+    },
 ]
 
-console.log(questions)
-
 Vue.config.devtools = true
+Vue.config.errorHandler = function(err, vm, info) {
+    quiz.resetQuiz()
+}
 
 let quiz = new Vue({
     el: '#quiz',
     data: {
         questions,
-        isStarted: false,
         isEnded: false,
         scores: 0,
+        diagnosis: '',
         currentQuestion: 0,
-        currentPrompt: 'Quiz: are you natsi?',
+        currentPrompt: '',
         currentOptions: [],
         currentScore: 0,
     },
     methods: {
-        startQuiz: function() {
-            this.isStarted = true
-
-            this.nextQuestionHandler()
-        },
         nextQuestionHandler: function(scores) {
             this.currentPrompt = this.questions[this.currentQuestion].prompt
             this.currentOptions = this.questions[this.currentQuestion].options
+            this.currentScore = scores
             
-
-            if (this.currentQuestion > 0) {
-                this.currentScore = scores
-                this.scores += this.currentScore
-            } // don't count scores at first time, otherwise they'll be NaN
+            this.scores += this.currentScore // count scores up
 
             this.currentQuestion++
+
+            if (this.currentQuestion === this.questions.length) {
+                this.isEnded = true
+                this.makeUpDiagnosis()
+            }
+        },
+        makeUpDiagnosis: function() {
+            let percentScores = Math.floor( this.scores / (this.questions.length - 2) * 100 )
+
+            if (percentScores >= 70) {
+                this.diagnosis = 'You are.. you are.. not a natsi! Congratulations! You can join the Antisig army.'
+            } else if (percentScores >= 50 && percentScores < 70) {
+                this.diagnosis = 'Apparently you\'re not a natsi, but you\'re also not a natsi-struggler as the great not a beard guy, you seem to be a usual person so walk away😞'
+            } else if (percentScores >= 0 && percentScores < 50) {
+                this.diagnosis = 'We\'ve got bad news, kid. You\'re a natsi and your location has been triangulated, so now The Gobsmaking Antisig is coming to you, NATSI'
+            }
+        },
+        resetQuiz: function() {
+            this.isEnded = false
+            this.scores = 0
+            this.diagnosis = ''
+            this.currentQuestion = 0
+            this.currentPrompt = ''
+            this.currentOptions = []
+            this.currentScore = 0
+
+            this.nextQuestionHandler(0)
+            this.nextQuestionHandler(0)
         }
+    },
+    beforeMount: function() {
+        this.nextQuestionHandler(0)
     }
 })
